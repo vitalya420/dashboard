@@ -5,8 +5,14 @@
 <template>
   <div class="text-center">
     <div class="header-container py-2">
-      <v-btn icon="mdi-arrow-left" variant="plain" class="back-button"></v-btn>
-      <h3 class="text-h6 title align-self-center">Confirm authorization</h3>
+      <v-btn
+        icon="mdi-arrow-left"
+        variant="plain"
+        class="back-button"
+      />
+      <h3 class="text-h6 title align-self-center">
+        Confirm authorization
+      </h3>
     </div>
     <div class="text-body-2">
       We sent a verification code to +111111 <br>
@@ -15,8 +21,8 @@
     </div>
     <v-sheet color="surface">
       <v-otp-input
-          variant="solo"
-      ></v-otp-input>
+        variant="solo"
+      />
     </v-sheet>
   </div>
 </template>
