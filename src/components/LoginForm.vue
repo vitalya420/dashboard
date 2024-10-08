@@ -3,11 +3,17 @@ export default {
   data() {
     return {
       dialog: false,
+      loading: false,
     };
   },
   methods: {
     openDialog() {
       this.dialog = true;
+    },
+    async login() {
+      this.loading = true;
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      this.loading = false;
     },
   },
 };
@@ -15,8 +21,9 @@ export default {
 
 <template>
   <v-card
-    class="login-card pa-4 d-flex flex-column"
+    class="pa-4 d-flex flex-column"
     elevation="2"
+    style="width: min(100%, 400px);"
   >
     <div class="login-card-header text-center">
       <h2 class="poppins-regular">
@@ -30,15 +37,19 @@ export default {
       <v-form>
         <v-text-field
           label="Phone Number"
+          :disabled="loading"
         />
 
         <v-text-field
           label="Password"
           type="password"
+          :disabled="loading"
         />
 
         <v-btn
           block
+          :loading="loading"
+          @click="login"
         >
           Login
         </v-btn>
@@ -74,9 +85,3 @@ export default {
     </v-card>
   </v-dialog>
 </template>
-
-<style scoped>
-.login-card {
-  width: min(100%, 400px);
-}
-</style>
