@@ -6,8 +6,9 @@
     permanent
     :rail="rail"
     @click="rail = false"
+    :width="width"
   >
-    <v-list>
+    <v-list class="h-100 d-flex flex-column">
       <v-list-item
         nav
       >
@@ -27,6 +28,14 @@
         :title="item.title"
         href="#"
       />
+
+      <div class="flex-grow-1" />
+      <v-divider />
+      <v-list-item
+        prepend-icon="mdi-logout"
+      >
+        <v-list-item-title>Logout</v-list-item-title>
+      </v-list-item>
     </v-list>
   </v-navigation-drawer>
 </template>
@@ -38,9 +47,13 @@ export default {
     return {
       drawer: true,
       rail: true,
+      width: 280,
       items: [
         { title: 'Dashboard', icon: 'mdi-view-dashboard', route: '/dashboard' },
-        { title: 'Profile', icon: 'mdi-account', route: '/profile' },
+        { title: 'Staff', icon: 'mdi-account-group', route: '/staff' },
+        { title: 'Menu Positions', icon: 'mdi-view-list', route: '/menu' },
+        { title: 'Advertisements', icon: 'mdi-advertisements', route: '/ads' },
+        { title: 'Feedbacks', icon: 'mdi-star-check', route: '/feedbacks' },
         { title: 'Settings', icon: 'mdi-cog', route: '/settings' },
       ],
     };
