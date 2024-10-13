@@ -1,21 +1,26 @@
 <template>
-  <div>
-    <LoginForm></LoginForm>
+  <div class="login-page">
+    <div class="login-form-wrapper">
+      <LoginForm></LoginForm>
+    </div>
   </div>
 </template>
 
 <script setup>
 definePageMeta({
-  layout: "login"
-})
+  layout: "login",
+});
 </script>
 
-<script>
-export default {
-  name: "login",
-  data() {
-    return {
-    }
-  }
+<style scoped>
+.login-page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
 }
-</script>
+
+.login-form-wrapper {
+  width: min(100%, 400px);
+  align-self: center;
+}
+</style>
