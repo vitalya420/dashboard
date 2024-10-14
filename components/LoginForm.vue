@@ -14,6 +14,9 @@
 </template>
 
 <script setup>
+const data = await useFetch('https://jsonplaceholder.typicode.com/todos/1');
+console.log(data);
+
 import { createUserStore } from "~/stores/user";
 const { $api } = useNuxtApp();
 

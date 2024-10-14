@@ -6,7 +6,7 @@ export default defineNuxtModule({
     configKey: "api",
   },
   defaults: {
-    baseURL: "https://jsonplaceholder.org",
+    baseURL: "http://localhost:8000",
   },
   setup(options, nuxt) {
     const resolver = createResolver(import.meta.url);
