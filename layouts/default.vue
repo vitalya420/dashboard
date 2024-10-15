@@ -1,30 +1,43 @@
+<!-- layouts/default.vue -->
 <template>
-  <div class="wrapper">
-    <div class="sidebar">
-      <DefaultSidebar></DefaultSidebar>
+  <div class="app-layout">
+    <DefaultSidebar />
+    <div class="right-side">
+      <NavigationBar :onSupportButton="() => showSupport = !showSupport"></NavigationBar>
+      <div class="main-content">
+        <NuxtPage />
+      </div>
     </div>
-    <div class="content">
-      <NuxtPage></NuxtPage>
-    </div>
+    <SupportSidebar v-if="showSupport"></SupportSidebar>
   </div>
 </template>
 
-<style scoped>
-.wrapper {
+<script>
+export default {
+  data() {
+    return {
+      showSupport: false,
+    }
+  }
+}
+</script>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+.app-layout {
   display: flex;
 }
 
-.sidebar {
-  width: 200px;
-  background: whitesmoke;
-  height: 100vh;
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
 }
 
-.content {
-  margin: 10px;
-  padding: 10px;
-  background: whitesmoke;
-  flex-grow: 2;
-  border-radius: 2px;
+.right-side{
+  flex-grow: 1;
+  /* display: flex; */
 }
 </style>

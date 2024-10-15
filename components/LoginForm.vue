@@ -1,22 +1,29 @@
 <template>
-  <form class="login-form" @submit.prevent="userStore.login">
-    <h3 class="title">Login</h3>
-    <div class="input-group">
-      <label for="phone">Phone</label>
-      <input type="text" v-model="userStore.phone" id="phone" />
+  <form class="container mt-5 p-4 border rounded" @submit.prevent="userStore.login">
+    <h3 class="text-center">Login</h3>
+    <div class="mb-3">
+      <label for="phone" class="form-label">
+        Phone
+      </label>
+      <div class="input-group">
+        <input type="text" v-model="userStore.phone" id="phone" class="form-control" />
+      </div>
     </div>
-    <div class="input-group">
-      <label for="password">Password</label>
-      <input type="password" v-model="userStore.password" id="password" />
+    <div class="mb-3">
+      <label for="password" class="form-label">
+        Password
+      </label>
+      <div class="input-group">
+        <input type="password" v-model="userStore.password" id="password" class="form-control" />
+      </div>
     </div>
-    <input type="submit" value="Login" />
+    <button type="submit" class="btn btn-success w-100">
+      <font-awesome-icon icon="fa-solid fa-sign-in-alt" /> Login
+    </button>
   </form>
 </template>
 
 <script setup>
-const data = await useFetch('https://jsonplaceholder.typicode.com/todos/1');
-console.log(data);
-
 import { createUserStore } from "~/stores/user";
 const { $api } = useNuxtApp();
 
@@ -25,23 +32,4 @@ const useUserStore = createUserStore($api);
 const userStore = useUserStore();
 </script>
 
-<style scoped>
-.input-group {
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-}
 
-.login-form {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  padding: 10px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-}
-
-.title {
-  text-align: center;
-}
-</style>

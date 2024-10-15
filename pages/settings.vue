@@ -9,7 +9,7 @@
 
     <h5>Logged in Device</h5>
     <div>
-      <button @click="showDeviceList = !showDeviceList">Show</button>
+      <Button @click="showDeviceList = !showDeviceList">Show</Button>
     </div>
     <TokensTable v-if="showDeviceList"></TokensTable>
   </div>
