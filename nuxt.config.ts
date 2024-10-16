@@ -1,7 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
-import Aura from '@primevue/themes/aura';
-
+import Aura from "@primevue/themes/aura";
 
 export default defineNuxtConfig({
   ssr: false,
@@ -9,15 +8,15 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ["@pinia/nuxt", "~/modules/api"],
   plugins: [
-    { src: '~/plugins/bootstrap.js', mode: 'client' },
-    '~/plugins/fontawesome.js',
+    { src: "~/plugins/bootstrap.js", mode: "client" },
+    "~/plugins/fontawesome.js",
   ],
   css: [
-    'bootstrap/dist/css/bootstrap.css',
-    '@fortawesome/fontawesome-svg-core/styles.css'
+    "bootstrap/dist/css/bootstrap.css",
+    "@fortawesome/fontawesome-svg-core/styles.css",
   ],
   build: {
-    transpile: ['bootstrap']
+    transpile: ["bootstrap"],
   },
   pinia: {
     storesDirs: ["./stores/**"],

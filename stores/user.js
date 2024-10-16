@@ -11,7 +11,6 @@ export const createUserStore = ($api) => {
     }),
 
     actions: {
-
       async login() {
         try {
           const res = await $api.post("/api/common/v1/auth/", {

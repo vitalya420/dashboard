@@ -1,43 +1,50 @@
 <template>
-  <div class="sidebar" :class="{ 'collapsed': isCollapsed }">
+  <div class="sidebar" :class="{ collapsed: isCollapsed }">
     <div class="sidebar-header w-100 position-relative">
       <button @click="toggleSidebar" class="toggle-btn">
-        <font-awesome-icon v-if="isCollapsed" icon="fa-solid fa-chevron-right"></font-awesome-icon>
-        <font-awesome-icon v-else icon="fa-solid fa-chevron-left"></font-awesome-icon>
+        <font-awesome-icon
+          v-if="isCollapsed"
+          icon="fa-solid fa-chevron-right"
+        ></font-awesome-icon>
+        <font-awesome-icon
+          v-else
+          icon="fa-solid fa-chevron-left"
+        ></font-awesome-icon>
       </button>
-      <div class="logo">
-      </div>    
+      <div class="logo"></div>
     </div>
-    <hr>
-    <ul class="nav flex-column flex-sm-row px-1">
-      <li class="nav-item w-100">
-        <NuxtLink class="btn btn-primary p-1 w-100" style="text-align: left;">
-          <font-awesome-icon icon="fa-solid fa-house" /> Hell Yeah
-        </NuxtLink>
-      </li>
-    </ul>
+    <div class="sidebar-body">
+      <ul class="nav flex-column flex-sm-row px-1">
+        <li class="nav-item w-100">
+          <NuxtLink class="btn btn-primary p-1 w-100" style="text-align: left">
+            <font-awesome-icon icon="fa-solid fa-house" /> Hell Yeah
+          </NuxtLink>
+        </li>
+      </ul>
+    </div>
+    <div class="sidebar-bottom d-flex justify-content-center">
+      <button class="btn btn-outline-danger btn-sm my-2">Logout</button>
+    </div>
   </div>
 </template>
 
 <script>
-
-
 export default {
   data() {
     return {
       isCollapsed: false,
       items: [
-        { label: 'Dashboard', icon: 'fa-solid fa-house' },
-        { label: 'Staff', icon: 'fa-solid fa-user-pen' }
+        { label: "Dashboard", icon: "fa-solid fa-house" },
+        { label: "Staff", icon: "fa-solid fa-user-pen" },
       ],
-    }
+    };
   },
   methods: {
     toggleSidebar() {
-      this.isCollapsed = !this.isCollapsed
-    }
-  }
-}
+      this.isCollapsed = !this.isCollapsed;
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -46,14 +53,22 @@ export default {
   height: 100vh;
   border: 1px #f0f0f0 solid;
   transition: width 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
-.sidebar-header{
+.sidebar-body {
+  margin-top: 20px;
+  flex-grow: 1;
+}
+
+.sidebar-header {
   height: 60px;
 }
 
 .logo {
-  background: url('https://placehold.co/200x60');
+  background: url("https://placehold.co/200x60");
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;

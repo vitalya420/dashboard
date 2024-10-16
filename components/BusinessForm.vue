@@ -1,15 +1,26 @@
 <template>
-  <form class="business-form">
+  <form class="business-form container mt-4">
+    <FileUpload></FileUpload>
+
     <div class="form-group">
       <label for="name">Business Name:</label>
-      <input type="text" id="name" placeholder="Coffee shop" />
+      <input
+        type="text"
+        id="name"
+        class="form-control"
+        placeholder="Coffee shop"
+      />
     </div>
+
     <div class="form-group">
-      <label for="desc">Business description:</label>
-      <textarea id="desc"></textarea>
+      <label for="desc">Business Description:</label>
+      <textarea id="desc" class="form-control" rows="4"></textarea>
     </div>
-    <div>
-      <input type="submit" value="Update" />
+
+    <div class="my-2">
+      <button type="submit" class="btn btn-outline-success btn-sm">
+        Update
+      </button>
     </div>
   </form>
 </template>
@@ -22,16 +33,5 @@
 }
 .image-preview:hover {
   cursor: pointer;
-}
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.business-form {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
 }
 </style>
