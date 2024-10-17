@@ -1,58 +1,54 @@
-<!-- layouts/default.vue -->
 <template>
-  <div class="app-layout">
-    <DefaultSidebar />
-    <div class="right-side">
-      <NavigationBar
-        :onSupportButton="() => (showSupport = !showSupport)"
-      ></NavigationBar>
-      <div class="main-content h-100">
-        <NuxtPage />
-      </div>
+  <div class="default-layout">
+    <DefaultSidebar :items="sidebarItems" />
+    <div class="app-content flex-grow-1">
+      <NuxtPage></NuxtPage>
     </div>
-    <SupportSidebar v-if="showSupport"></SupportSidebar>
   </div>
 </template>
 
-<script>
-const route = useRoute();
-console.log(route.path);
-
-export default {
-  data() {
-    return {
-      showSupport: false,
-      sidebarItems: [
-        {
-          label: "Dashboard",
-          icon: "fa-solid fa-house",
-          active: route.path === "/",
-        },
-      ],
-    };
+<script setup>
+const sidebarItems = [
+  {
+    name: "Dashboard",
+    icon: "fa-house",
+    to: "/",
   },
-};
+  {
+    name: "Menu",
+    icon: "fa-mug-saucer",
+    to: "/menu",
+  },
+  {
+    name: "Users",
+    icon: "fa-users",
+    to: "/users",
+  },
+  {
+    name: "Staff",
+    icon: "fa-user-pen",
+    to: "/users?staff=true",
+  },
+  {
+    name: "Feedbacks",
+    icon: "fa-star",
+    to: "/feedbacks",
+  },
+  {
+    name: "Settings",
+    icon: "fa-gear",
+    to: "/settings",
+  },
+];
 </script>
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-}
-.app-layout {
+.default-layout {
   display: flex;
+  background: whitesmoke;
 }
 
-.main-content {
-  flex-grow: 1;
-  padding: 10px;
-  min-height: 50%;
-}
-
-.right-side {
-  flex-grow: 1;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  /* display: flex; */
+.app-content {
+  margin: 25px;
 }
 </style>
